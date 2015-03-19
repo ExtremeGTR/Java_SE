@@ -1,0 +1,42 @@
+package com.gtr.c_initialization_and_cleanup.i_enum;
+
+/**
+ * switch与enum结合使用
+ * 
+ * @author GT-R
+ * @date 2015年3月18日 下午11:11:46
+ */
+public class Burrito {
+	Spiciness degree;
+	
+	public Burrito(Spiciness degree) {
+		this.degree = degree;
+	}
+	
+	public void describe() {
+		System.out.print("This burrito is ");
+		switch (degree) {
+			case NOT:
+				System.out.println("not spicy at all");
+				break;
+			case MILD:
+			case MEDIUM:
+				System.out.println("a little hot");
+				break;
+			case HOT:
+			case FLAMING:
+			default:
+				System.out.println("maybe too hot");
+				break;
+		}
+	}
+	
+	public static void main(String[] args) {
+		Burrito plain = new Burrito(Spiciness.NOT),
+				greenChile = new Burrito(Spiciness.MEDIUM),
+				jalapeno = new Burrito(Spiciness.HOT);
+		plain.describe();
+		greenChile.describe();
+		jalapeno.describe();
+	}
+}
